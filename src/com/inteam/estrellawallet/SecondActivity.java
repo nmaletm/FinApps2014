@@ -1,7 +1,5 @@
 package com.inteam.estrellawallet;
 
-import com.inteam.androidwear.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 
