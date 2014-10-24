@@ -10,10 +10,12 @@ public class User {
 
     private Wallet wallet;
     private List<Article> desiredArticles;
+    private int points;
 
     public User(){
         this.wallet = new Wallet();
         this.desiredArticles = new ArrayList<Article>();
+        this.points = 0;
     }
 
     public void addDesiredArticle(Article article){
@@ -29,5 +31,13 @@ public class User {
 
     public Wallet getWallet() {
         return wallet;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }

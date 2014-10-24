@@ -30,6 +30,12 @@ public class UserManager {
         this.save(user);
     }
 
+    public void setUserPoints(int points){
+        User user = this.load();
+        user.setPoints(points);
+        this.save(user);
+    }
+
     public void addExpense(float amount, String category){
         Expense expense = new Expense();
         expense.setAmount(amount);

@@ -24,20 +24,6 @@ public class CatalogManager {
         catalog.addArticle(new Article("Herramientas",1600,"photo_7"));
         catalog.addArticle(new Article("Termómetro",2550,"url_photo_8"));
         catalog.addArticle(new Article("Taladro",3125,"url_photo_9"));
-
-        /*
-        HashMap<String, Integer> photos;
-        photos.put("url_photo_0",R.id.catalog_caritas);
-        photos.put("url_photo_1",R.id.catalog_botellin);
-        photos.put("url_photo_2",R.id.catalog_portagafas);
-        photos.put("url_photo_3",R.id.catalog_microsd);
-        photos.put("url_photo_4",R.id.catalog.balon);
-        photos.put("url_photo_5",R.id.catalog_bidon);
-        photos.put("url_photo_6",R.id.catalog_molde_tarta);
-        photos.put("url_photo_7",R.id.catalog_herramientas);
-        photos.put("url_photo_8",R.id.catalog_termometro);
-        photos.put("url_photo_9",R.id.catalog_taladro);
-        */
     }
 
     public Catalog getCatalog(){
