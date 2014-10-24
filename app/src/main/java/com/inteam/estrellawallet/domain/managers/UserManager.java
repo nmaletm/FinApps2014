@@ -1,22 +1,23 @@
 package com.inteam.estrellawallet.domain.managers;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.inteam.estrellawallet.domain.entities.Article;
 import com.inteam.estrellawallet.domain.entities.Expense;
 import com.inteam.estrellawallet.domain.entities.User;
-import com.inteam.estrellawallet.domain.entities.Wallet;
 
 import java.util.Date;
 
 
 public class UserManager {
     private final String SHARED_PREF_KEY = "user_key";
+    private final String SHARED_PREF = "shared";
     private SharedPreferences settings;
 
-    public UserManager(SharedPreferences settings){
-        this.settings = settings;
+    public UserManager(Context context){
+        this.settings = context.getSharedPreferences(SHARED_PREF, 0);
     }
     public User getUser(){
         return this.load();
