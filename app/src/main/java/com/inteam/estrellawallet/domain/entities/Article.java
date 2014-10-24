@@ -1,10 +1,5 @@
 package com.inteam.estrellawallet.domain.entities;
 
-import java.util.Date;
-
-/**
- * Created by Nestor on 24/10/2014.
- */
 public class Article {
     private String name;
     private int points;

@@ -2,9 +2,6 @@ package com.inteam.estrellawallet.domain.entities;
 
 import java.util.Date;
 
-/**
- * Created by Nestor on 24/10/2014.
- */
 public class Expense {
     private float amount;
     private String category;

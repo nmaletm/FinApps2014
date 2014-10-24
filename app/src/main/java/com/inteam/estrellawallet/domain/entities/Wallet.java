@@ -13,6 +13,7 @@ public class Wallet {
 
     public Wallet(){
         budget = 0;
+        listOfExpenses = new ArrayList<Expense>();
     }
 
     public List<Expense> getListOfExpenses() {
