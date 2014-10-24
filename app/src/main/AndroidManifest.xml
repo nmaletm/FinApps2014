@@ -20,7 +20,11 @@
         </activity>
         <activity
             android:name=".ActivityMain"
-            android:label="@string/title_activity_config" >
+            android:label="@string/title_activity_budget" >
+        </activity>
+        <activity
+            android:name=".PointsActivity"
+            android:label="@string/title_activity_points" >
         </activity>
     </application>
 
