@@ -12,7 +12,7 @@ Esta app ha sido realizada en la edición de FINAPPS PARTY del 2014 en Barcelona
 
 ## Documentación
 - [Video presentación](http://www.youtube.com)
-- Presentación [EstrellaWallet en otros dispositivos](https://docs.google.com/presentation/d/1a_kOwYgRdA_nI4ZQO8BZANhKkCqGqaT9pUHFUQs6Zkg/edit)
+- [Planes de futuro de EstrellaWallet](https://docs.google.com/presentation/d/1a_kOwYgRdA_nI4ZQO8BZANhKkCqGqaT9pUHFUQs6Zkg/edit)
 
 ## Capturas
 
