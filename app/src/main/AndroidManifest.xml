@@ -10,21 +10,24 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.DeviceDefault" >
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".BudgetActivity"
             android:label="@string/title_activity_budget" >
         </activity>
         <activity
             android:name=".AddExpenseActivity"
-            android:label="@string/title_activity_config" >
+            android:label="wallet" >
+        </activity>
+        <activity
+            android:name=".ConfigCatalogActivity"
+            android:label="wallet" >
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="wallet">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".PointsActivity"
