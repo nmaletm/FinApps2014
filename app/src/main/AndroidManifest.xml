@@ -37,6 +37,10 @@
             android:name=".MyCatalogActivity"
             android:label="mycatalog" >
         </activity>
+        <activity
+            android:name=".HistoryActivity"
+            android:label="history" >
+        </activity>
     </application>
 
 </manifest>

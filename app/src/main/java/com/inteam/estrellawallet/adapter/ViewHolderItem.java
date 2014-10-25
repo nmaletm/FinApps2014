@@ -8,6 +8,7 @@ import android.widget.TextView;
 public class ViewHolderItem {
     public TextView name;
     public TextView price;
+    public TextView date;
     public ImageView image;
     public LinearLayout background;
     public View selected;

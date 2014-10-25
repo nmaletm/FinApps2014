@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LL_achievement"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="fill_vertical"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/layoutHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_margin="0dp"
+        android:layout_height="wrap_content" >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_marginTop="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:ellipsize="end"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="left|center_vertical"
+                android:singleLine="true"
+                android:text="Name"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/dark_blue"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:id="@+id/item_level"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center_vertical"
+                    android:text="12"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16sp"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/item_date"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center_vertical|right"
+                    android:text="01/01/2001"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="14sp"
+                    android:typeface="monospace" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:background="@color/blue">
+
+    </View>
+
+
+</LinearLayout>
