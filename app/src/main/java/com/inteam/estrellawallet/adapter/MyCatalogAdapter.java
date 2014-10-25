@@ -86,7 +86,7 @@ public class MyCatalogAdapter extends BaseAdapter{
             if(article.getPoints() <= userPoints){
                 holder.price.setText("Avaiable");
             } else {
-                holder.price.setText(article.getPoints()+" left");
+                holder.price.setText(userPoints-article.getPoints()+" left");
             }
 
             holder.image= (ImageView) convertView.findViewById(R.id.item_image);
