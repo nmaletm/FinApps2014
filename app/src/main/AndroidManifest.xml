@@ -33,6 +33,10 @@
             android:name=".PointsActivity"
             android:label="@string/title_activity_points" >
         </activity>
+        <activity
+            android:name=".MyCatalogActivity"
+            android:label="mycatalog" >
+        </activity>
     </application>
 
 </manifest>
