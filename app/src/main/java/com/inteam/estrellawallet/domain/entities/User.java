@@ -18,6 +18,11 @@ public class User {
         this.points = 0;
     }
 
+
+    public int pointsEarned(int amount){
+        return amount / 6;
+    }
+
     public void addDesiredArticle(Article article){
         this.desiredArticles.add(article);
     }

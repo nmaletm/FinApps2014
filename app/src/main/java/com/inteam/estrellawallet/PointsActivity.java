@@ -8,23 +8,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.inteam.estrellawallet.domain.managers.UserManager;
 
 import java.util.List;
 
 
-public class ConfigActivity extends Activity {
+public class PointsActivity extends Activity {
 
     private static final int SPEECH_REQUEST_CODE = 0;
 
-    private int step;
+    private int points = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_config_1);
+        setContentView(R.layout.activity_config_2);
         //TODO : preguntar si ja estic registrat
-        step = 1;
     }
 
     private void displaySpeechRecognizer() {
@@ -52,13 +52,21 @@ public class ConfigActivity extends Activity {
             String spokenText = results.get(0);
 
             if (isNumber(spokenText)) {
-                TextView TVAmount = (TextView) findViewById(R.id.TV_amount);
-                TVAmount.setText(spokenText);
+                TextView Pamount = (TextView) findViewById(R.id.P_amount);
+                Pamount.setText(spokenText);
 
-                Button OK = (Button) findViewById(R.id.B_OK_config1);
-                OK.setEnabled(true);
+                Button next = (Button) findViewById(R.id.B_OK_config2);
+                next.setText("Next");
+                next.setEnabled(true);
+
+                points = Integer.parseInt(spokenText);
+            } else {
+                TextView Pamount = (TextView) findViewById(R.id.P_amount);
+                if (Pamount.getText().equals("0")) {
+                    Button next = (Button) findViewById(R.id.B_OK_config2);
+                    next.setText("Try again!");
+                }
             }
-
 
             ScrollView view = (ScrollView) findViewById(R.id.scrollView);
             view.scrollTo(0, 200);
@@ -67,11 +75,15 @@ public class ConfigActivity extends Activity {
     }
 
 
-    public void onClickSetBudget(View v) {
+    public void onClickSetPoints(View v) {
         displaySpeechRecognizer();
     }
 
-    public void onClickNext(View v) {
-
+    public void onClickNextView(View v) {
+        UserManager manager = new UserManager(getApplicationContext());
+        manager.setUserPoints(points);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 }
