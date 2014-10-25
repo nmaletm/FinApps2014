@@ -1,6 +1,5 @@
 package com.inteam.estrellawallet;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
@@ -34,7 +33,7 @@ public class MainActivity extends SlidingActivity {
         TextView points = (TextView) findViewById(R.id.points_value);
         points.setText(userManager.getUser().getPoints()+"");
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.RL_background);
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.main_layout_main);
         layout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
             @Override
             public void onSwipeTop() {
@@ -55,5 +54,16 @@ public class MainActivity extends SlidingActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        UserManager userManager = new UserManager(getApplicationContext());
+        TextView balance = (TextView) findViewById(R.id.balance_value);
+        balance.setText(userManager.getSpentLastWeek() + "€ /" + userManager.getUser().getWallet().getBudget() + "€");
+        TextView points = (TextView) findViewById(R.id.points_value);
+        points.setText(userManager.getUser().getPoints()+"");
     }
 }

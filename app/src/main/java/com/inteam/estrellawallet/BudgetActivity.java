@@ -20,15 +20,12 @@ public class BudgetActivity extends Activity {
 
     private static final int SPEECH_REQUEST_CODE = 0;
 
-    private int step;
     private int budget = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config_1);
-        //TODO : preguntar si ja estic registrat
-        step = 1;
     }
 
     private void displaySpeechRecognizer() {
