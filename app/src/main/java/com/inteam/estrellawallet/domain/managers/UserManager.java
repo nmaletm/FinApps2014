@@ -10,7 +10,6 @@ import com.inteam.estrellawallet.domain.entities.User;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 
 public class UserManager {
@@ -50,14 +49,16 @@ public class UserManager {
         this.save(user);
     }
 
-    public void addExpense(float amount, String category){
+    public void addExpense(int amount, String category){
         Expense expense = new Expense();
         expense.setAmount(amount);
         expense.setCategory(category);
         expense.setDate(new Date());
 
         User user = this.load();
+        int points = user.pointsEarned(amount);
         user.getWallet().addExpenses(expense);
+        user.incrementPoints(points);
         this.save(user);
     }
 
