@@ -29,18 +29,6 @@ public class MainActivity extends SlidingActivity {
             this.finish();
         }
 
-        showMyCatalog = (userManager.getUser().getDesiredArticles().size() > 0);
-
-        if(!showMyCatalog){
-            ((ImageButton) findViewById(R.id.imageButtonBottom)).setVisibility(View.INVISIBLE);
-        } else {
-            ((ImageButton) findViewById(R.id.imageButtonBottom)).setVisibility(View.VISIBLE);
-        }
-
-        TextView balance = (TextView) findViewById(R.id.balance_value);
-        balance.setText(userManager.getSpentLastWeek() + "€ /" + userManager.getUser().getWallet().getBudget() + "€");
-        TextView points = (TextView) findViewById(R.id.points_value);
-        points.setText(userManager.getUser().getPoints()+"");
 
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.main_layout_main);
         layout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
@@ -63,6 +51,26 @@ public class MainActivity extends SlidingActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        UserManager userManager = new UserManager(getApplicationContext());
+        showMyCatalog = (userManager.getUser().getDesiredArticles().size() > 0);
+
+        if(!showMyCatalog){
+            ((ImageButton) findViewById(R.id.imageButtonBottom)).setVisibility(View.INVISIBLE);
+        } else {
+            ((ImageButton) findViewById(R.id.imageButtonBottom)).setVisibility(View.VISIBLE);
+        }
+
+        TextView balance = (TextView) findViewById(R.id.balance_value);
+        balance.setText(userManager.getSpentLastWeek() + "€ /" + userManager.getUser().getWallet().getBudget() + "€");
+        TextView points = (TextView) findViewById(R.id.points_value);
+        points.setText(userManager.getUser().getPoints()+"");
+
     }
 
     @Override

@@ -106,11 +106,9 @@ public class AddExpenseActivity extends SlidingActivity {
 
     public void onClickNext(View v) {
         UserManager manager = new UserManager(getApplicationContext());
-        User user = manager.getUser();
 
         TextView expense = (TextView) findViewById(R.id.expense);
         int spent = Integer.parseInt((String) expense.getText());
-        int points = user.pointsEarned(spent);
         manager.addExpense(spent, description);
         this.finish();
     }
