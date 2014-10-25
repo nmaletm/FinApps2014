@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Weekly budget"
+            android:text="Add Expense"
             android:id="@+id/TV_add_title"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/dark_blue"
@@ -35,29 +35,35 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight="3">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="40 €"
-                android:id="@+id/TV_add_budget"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="-10 €"
-                android:id="@+id/TV_add_amount"
-                android:layout_gravity="center_horizontal" />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton"
+                    android:background="@color/light_green"
+                    android:src="@drawable/ic_keyboard_voice_white_48dp"
+                    android:minWidth="32dp"
+                    android:minHeight="32dp"
+                    android:contentDescription="" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="25 €"
-                android:id="@+id/TV_add_final"
-                android:layout_gravity="center_horizontal" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton2"
+                    android:background="@drawable/ic_keyboard_voice_white_48dp" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout

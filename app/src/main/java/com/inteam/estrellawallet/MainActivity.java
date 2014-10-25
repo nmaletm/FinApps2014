@@ -28,10 +28,11 @@ public class MainActivity extends SlidingActivity {
             this.finish();
         }
 
+        UserManager userManager = new UserManager(getApplicationContext());
         TextView balance = (TextView) findViewById(R.id.balance_value);
-        balance.setText("€ /" + "€");
+        balance.setText(userManager.getSpentLastWeek() + "€ /" + userManager.getUser().getWallet().getBudget() + "€");
         TextView points = (TextView) findViewById(R.id.points_value);
-        points.setText("somanypoints");
+        points.setText(userManager.getUser().getPoints()+"");
 
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.main_layout);
         layout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
