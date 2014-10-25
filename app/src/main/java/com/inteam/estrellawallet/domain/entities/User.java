@@ -42,6 +42,9 @@ public class User {
         return points;
     }
 
+    public void incrementPoints(int points) {
+        this.points += points;
+    }
     public void setPoints(int points) {
         this.points = points;
     }
