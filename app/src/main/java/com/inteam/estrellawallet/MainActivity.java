@@ -95,4 +95,10 @@ public class MainActivity extends SlidingActivity {
         Intent intent = new Intent(getApplicationContext(), MyCatalogActivity.class);
         startActivity(intent);
     }
+
+
+    public void onClickHistory(View v) {
+        Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
+        startActivity(intent);
+    }
 }
