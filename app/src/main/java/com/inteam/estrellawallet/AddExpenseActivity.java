@@ -12,6 +12,8 @@ import com.inteam.estrellawallet.domain.entities.User;
 import com.inteam.estrellawallet.domain.listeners.OnSwipeTouchListener;
 import com.inteam.estrellawallet.domain.managers.UserManager;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.List;
 
 public class AddExpenseActivity extends SlidingActivity {
@@ -37,7 +39,7 @@ public class AddExpenseActivity extends SlidingActivity {
         um = new UserManager(this.getApplicationContext());
 
         setContentView(R.layout.activity_add_expense);
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.main_layout_main);
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.main_expense);
         layout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
             @Override
             public void onSwipeBottom() {
@@ -56,9 +58,11 @@ public class AddExpenseActivity extends SlidingActivity {
     private boolean isNumber(String word) {
         boolean isNumber = false;
         try {
-            Integer.parseInt(word);
+            NumberFormat.getNumberInstance(java.util.Locale.US).parse(word);
             isNumber = true;
         } catch (NumberFormatException e) {
+            isNumber = false;
+        } catch (ParseException e) {
             isNumber = false;
         }
         return isNumber;
@@ -75,7 +79,11 @@ public class AddExpenseActivity extends SlidingActivity {
                 expense.setText(spokenText);
 
                 Button next = (Button) findViewById(R.id.add_expense);
-                next.setText("Next +" + (Integer.parseInt(spokenText)/6) + "points");
+                try {
+                    next.setText(" Next +" + (NumberFormat.getNumberInstance(java.util.Locale.US).parse(spokenText).intValue()/6) + " points ");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 next.setEnabled(true);
 
             } else {

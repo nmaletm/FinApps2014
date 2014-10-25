@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.inteam.estrellawallet.BudgetActivity"
     android:background="@color/light_blue"
-    android:id="@+id/main_layout_main">
+    android:id="@+id/main_main">
 
     <TextView
         android:layout_width="wrap_content"
