@@ -3,15 +3,15 @@ package com.inteam.estrellawallet.domain.entities;
 import java.util.Date;
 
 public class Expense {
-    private float amount;
+    private int amount;
     private String category;
     private Date date;
 
-    public float getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
