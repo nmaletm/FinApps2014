@@ -24,17 +24,13 @@ public class AddExpenseActivity extends SlidingActivity {
 
     private TextView mTextView;
     private UserManager um;
+    private String description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         exitPoint = ExitPoint.BOTTOM;
-
-        um = new UserManager(this.getApplicationContext());
-        um.setBudget(100);
-        um.addExpense(25, "test");
-        um.addExpense(10,"test");
 
         um = new UserManager(this.getApplicationContext());
 
@@ -70,7 +66,11 @@ public class AddExpenseActivity extends SlidingActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == SPEECH_EXPENSE_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == SPEECH_DESCRIPTION_REQUEST_CODE && resultCode == RESULT_OK){
+            List<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            description = results.get(0);
+        }
+        else if (requestCode == SPEECH_EXPENSE_REQUEST_CODE && resultCode == RESULT_OK) {
             List<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             String spokenText = results.get(0);
 
@@ -79,11 +79,13 @@ public class AddExpenseActivity extends SlidingActivity {
                 expense.setText(spokenText);
 
                 Button next = (Button) findViewById(R.id.add_expense);
+
                 try {
                     next.setText(" Next +" + (NumberFormat.getNumberInstance(java.util.Locale.US).parse(spokenText).intValue()/6) + " points ");
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+
                 next.setEnabled(true);
 
             } else {
@@ -114,11 +116,10 @@ public class AddExpenseActivity extends SlidingActivity {
 
     public void onClickNext(View v) {
         UserManager manager = new UserManager(getApplicationContext());
-        User user = manager.getUser();
 
         TextView expense = (TextView) findViewById(R.id.expense);
         int spent = Integer.parseInt((String) expense.getText());
-        int points = user.pointsEarned(spent);
+        manager.addExpense(spent, description);
         this.finish();
     }
 }
