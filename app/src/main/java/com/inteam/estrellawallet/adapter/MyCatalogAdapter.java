@@ -15,6 +15,7 @@ import com.inteam.estrellawallet.MyCatalogActivity;
 import com.inteam.estrellawallet.R;
 import com.inteam.estrellawallet.domain.entities.Article;
 import com.inteam.estrellawallet.domain.managers.CatalogManager;
+import com.inteam.estrellawallet.domain.managers.UserManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +28,7 @@ public class MyCatalogAdapter extends BaseAdapter{
     private MyCatalogActivity mContext;
     private List<Article> items;
     private Map<String, Integer> dummyPhotos;
+    private int userPoints;
 
     public MyCatalogAdapter(MyCatalogActivity activity, List<Article> newItems) {
         mContext = activity;
@@ -45,6 +47,9 @@ public class MyCatalogAdapter extends BaseAdapter{
         dummyPhotos.put("url_photo_8",R.drawable.catalog_termometro);
         dummyPhotos.put("url_photo_9",R.drawable.catalog_taladro);
 
+
+        UserManager um = new UserManager(activity.getApplicationContext());
+        userPoints = um.getUser().getPoints();
     }
 
     public int getCount() {
@@ -77,7 +82,13 @@ public class MyCatalogAdapter extends BaseAdapter{
             holder.name = (TextView) convertView.findViewById(R.id.item_name);
             holder.name.setText(article.getName());
             holder.price = (TextView) convertView.findViewById(R.id.item_level);
-            holder.price.setText(article.getPoints()+"");
+
+            if(article.getPoints() <= userPoints){
+                holder.price.setText("Avaiable");
+            } else {
+                holder.price.setText(article.getPoints()+" left");
+            }
+
             holder.image= (ImageView) convertView.findViewById(R.id.item_image);
             //Typeface type = Typeface.createFromAsset(mContext.getAssets(),"fonts/LuckiestGuy.ttf");
             //holder.price.setTypeface(type);

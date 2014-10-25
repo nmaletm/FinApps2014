@@ -47,10 +47,11 @@
                     android:id="@+id/micro_expense"
                     android:scaleType="centerCrop"
                     android:layout_centerHorizontal="true"
-                    android:background="@color/light_green"
+                    android:background="@drawable/green_circle"
                     android:src="@drawable/ic_keyboard_voice_white_48dp"
                     android:contentDescription=""
-                    android:onClick="onExpenseClick">
+                    android:onClick="onExpenseClick"
+                    android:padding="3dp">
                 </ImageButton>
 
                 <TextView
@@ -69,7 +70,7 @@
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="7dp">
 
                 <ImageButton
                     android:layout_width="40dp"
@@ -77,10 +78,11 @@
                     android:id="@+id/micro_description"
                     android:scaleType="centerCrop"
                     android:layout_centerHorizontal="true"
-                    android:background="@color/light_green"
+                    android:background="@drawable/green_circle"
                     android:src="@drawable/ic_keyboard_voice_white_48dp"
                     android:contentDescription=""
-                    android:onClick="onDescriptionClick">
+                    android:onClick="onDescriptionClick"
+                    android:padding="3dp">
                 </ImageButton>
 
                 <TextView

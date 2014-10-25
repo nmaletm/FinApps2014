@@ -2,6 +2,8 @@ package com.inteam.estrellawallet;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -12,7 +14,7 @@ import com.inteam.estrellawallet.domain.managers.UserManager;
 
 public class MainActivity extends SlidingActivity {
 
-
+    private boolean showMyCatalog;
     private TextView mTextView;
 
     @Override
@@ -20,14 +22,21 @@ public class MainActivity extends SlidingActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        UserManager manager = new UserManager(getApplicationContext());
-        if (!manager.hasBudget()) {
+        UserManager userManager = new UserManager(getApplicationContext());
+        if (!userManager.hasBudget()) {
             Intent intent = new Intent(getApplicationContext(), BudgetActivity.class);
             startActivity(intent);
             this.finish();
         }
 
-        UserManager userManager = new UserManager(getApplicationContext());
+        showMyCatalog = (userManager.getUser().getDesiredArticles().size() > 0);
+
+        if(!showMyCatalog){
+            ((ImageButton) findViewById(R.id.imageButtonBottom)).setVisibility(View.INVISIBLE);
+        } else {
+            ((ImageButton) findViewById(R.id.imageButtonBottom)).setVisibility(View.VISIBLE);
+        }
+
         TextView balance = (TextView) findViewById(R.id.balance_value);
         balance.setText(userManager.getSpentLastWeek() + "€ /" + userManager.getUser().getWallet().getBudget() + "€");
         TextView points = (TextView) findViewById(R.id.points_value);
@@ -64,6 +73,21 @@ public class MainActivity extends SlidingActivity {
         TextView balance = (TextView) findViewById(R.id.balance_value);
         balance.setText(userManager.getSpentLastWeek() + "€ /" + userManager.getUser().getWallet().getBudget() + "€");
         TextView points = (TextView) findViewById(R.id.points_value);
-        points.setText(userManager.getUser().getPoints()+"");
+        points.setText(userManager.getUser().getPoints() + "");
+    }
+
+    public void onClickTopButton(View v) {
+        Intent intent = new Intent(getApplicationContext(), AddExpenseActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickRightButton(View v) {
+        Intent intent = new Intent(getApplicationContext(), BudgetActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickBottomButton(View v) {
+        Intent intent = new Intent(getApplicationContext(), MyCatalogActivity.class);
+        startActivity(intent);
     }
 }
