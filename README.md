@@ -9,6 +9,11 @@ Esta app ha sido realizada en la edición de FINAPPS PARTY del 2014 en Barcelona
 
 ![CaixaBank](material/readme/caixabank.jpg)
 
+
+## Documentación
+- [Video presentación](http://www.youtube.com)
+- Presentación [EstrellaWallet en otros dispositivos](https://docs.google.com/presentation/d/1a_kOwYgRdA_nI4ZQO8BZANhKkCqGqaT9pUHFUQs6Zkg/edit)
+
 ## Capturas
 
 ### Pantalla principal
@@ -36,12 +41,6 @@ Esta app ha sido realizada en la edición de FINAPPS PARTY del 2014 en Barcelona
 ![Captura](material/screenshots/config3.png)
 ![Captura](material/screenshots/config4.png)
 
-
-
-
-## Documentación
-- [Video presentación](http://www.youtube.com)
-- Presentación [EstrellaWallet en otros dispositivos](https://docs.google.com/presentation/d/1a_kOwYgRdA_nI4ZQO8BZANhKkCqGqaT9pUHFUQs6Zkg/edit)
 
 ## Autores
 - [Isaac Obradors](https://github.com/isaacobradors)
