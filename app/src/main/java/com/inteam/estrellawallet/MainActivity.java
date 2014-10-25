@@ -65,23 +65,20 @@ public class MainActivity extends SlidingActivity {
         } else {
             ((ImageButton) findViewById(R.id.imageButtonBottom)).setVisibility(View.VISIBLE);
         }
-
-        TextView balance = (TextView) findViewById(R.id.balance_value);
-        balance.setText(userManager.getSpentLastWeek() + "€ /" + userManager.getUser().getWallet().getBudget() + "€");
-        TextView points = (TextView) findViewById(R.id.points_value);
-        points.setText(userManager.getUser().getPoints()+"");
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
         UserManager userManager = new UserManager(getApplicationContext());
+        int budget = userManager.getUser().getWallet().getBudget();
+
         TextView balance = (TextView) findViewById(R.id.balance_value);
-        balance.setText(userManager.getSpentLastWeek() + "€ /" + userManager.getUser().getWallet().getBudget() + "€");
+        balance.setText(budget-userManager.getSpentLastWeek()+"");
+        TextView budgetView = (TextView) findViewById(R.id.budget_value);
+        budgetView.setText("/" + budget + "€");
         TextView points = (TextView) findViewById(R.id.points_value);
-        points.setText(userManager.getUser().getPoints() + "");
+        points.setText(userManager.getUser().getPoints()+"");
     }
 
     public void onClickTopButton(View v) {
