@@ -49,6 +49,7 @@
                 android:textStyle="bold"
                 android:id="@+id/P_amount"
                 android:layout_gravity="center"
+                android:textColor="@color/dark_blue"
                 android:layout_marginTop="15dp"
                 android:textSize="24dp" />
 
