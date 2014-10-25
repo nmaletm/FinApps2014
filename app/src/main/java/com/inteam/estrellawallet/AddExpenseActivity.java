@@ -50,13 +50,13 @@ public class AddExpenseActivity extends SlidingActivity {
 
         int budget = user.getWallet().getBudget();
         String budgetText = budget + " €";
-        ((TextView)findViewById(R.id.TV_add_budget)).setText(budgetText);
+        //((TextView)findViewById(R.id.TV_add_budget)).setText(budgetText);
 
         String spentText = spent + " €";
-        ((TextView)findViewById(R.id.TV_add_amount)).setText(spentText);
+        //((TextView)findViewById(R.id.TV_add_amount)).setText(spentText);
 
         String finalText = budget-spent + " €";
-        ((TextView)findViewById(R.id.TV_add_final)).setText(finalText);
+        //((TextView)findViewById(R.id.TV_add_final)).setText(finalText);
 
 
         ((TextView)findViewById(R.id.TV_add_points)).setText(points+"");

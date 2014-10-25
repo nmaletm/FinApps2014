@@ -34,7 +34,7 @@ public class MainActivity extends SlidingActivity {
         TextView points = (TextView) findViewById(R.id.points_value);
         points.setText(userManager.getUser().getPoints()+"");
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.main_layout);
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.RL_background);
         layout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
             @Override
             public void onSwipeTop() {
