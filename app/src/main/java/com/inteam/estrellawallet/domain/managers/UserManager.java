@@ -8,7 +8,9 @@ import com.inteam.estrellawallet.domain.entities.Article;
 import com.inteam.estrellawallet.domain.entities.Expense;
 import com.inteam.estrellawallet.domain.entities.User;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 
 public class UserManager {
@@ -28,6 +30,18 @@ public class UserManager {
         User user = this.load();
         user.getWallet().setBudget(budget);
         this.save(user);
+    }
+
+    public int getSpentLastWeek(){
+        User user = this.load();
+        Date day = new Date();
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(day);
+        c.add(Calendar.DATE, -7);
+        day.setTime( c.getTime().getTime() );
+
+        return user.getWallet().getSpentSinceDate(day);
     }
 
     public void setUserPoints(int points){
@@ -61,7 +75,7 @@ public class UserManager {
     public void save(User user){
         Gson gson = new Gson();
         String json = gson.toJson(user);
-        settings.edit().putString(SHARED_PREF_KEY, json);
+        settings.edit().putString(SHARED_PREF_KEY, json).apply();
     }
 
     public User load(){
