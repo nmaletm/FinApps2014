@@ -18,17 +18,21 @@ Esta app ha sido realizada en la edición de FINAPPS PARTY del 2014 en Barcelona
 ### Gastos
 ![Captura](material/screenshots/addExpense.png)
 ![Captura](material/screenshots/addExpense2.png)
+
 ---
+
 ![Captura](material/screenshots/yourExpenses.png)
 
 ### Regalos del programa "Punts estrella"
 ![Captura](material/screenshots/choose_wants.png)
-![Captura](material/screenshots/yourWants1.png) 
+![Captura](material/screenshots/yourWants1.png)
 
 ### Configuración
 ![Captura](material/screenshots/config1.png)
 ![Captura](material/screenshots/config2.png)
+
 ---
+
 ![Captura](material/screenshots/config3.png)
 ![Captura](material/screenshots/config4.png)
 
