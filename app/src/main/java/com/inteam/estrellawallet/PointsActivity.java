@@ -82,7 +82,8 @@ public class PointsActivity extends Activity {
     public void onClickNextView(View v) {
         UserManager manager = new UserManager(getApplicationContext());
         manager.setUserPoints(points);
-        TextView Pamount = (TextView) findViewById(R.id.P_amount);
-        Pamount.setText(manager.hasBudget()+"");
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 }
