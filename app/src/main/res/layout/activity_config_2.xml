@@ -26,7 +26,7 @@
                 android:id="@+id/TV_how_many"
                 android:textSize="18dp"
                 android:textColor="@color/dark_blue"
-                android:layout_below="@+id/TV_hello"
+                android:layout_below="@+id/balance"
                 android:layout_centerHorizontal="true" />
 
             <Button
