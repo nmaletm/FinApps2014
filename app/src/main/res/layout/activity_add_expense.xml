@@ -8,7 +8,7 @@
     android:paddingBottom="5dp"
     tools:context="com.inteam.estrellawallet.ActivityMain"
     android:background="@color/light_blue"
-    android:id="@+id/main_layout_main"
+    android:id="@+id/main_expense"
     android:longClickable="false">
 
     <LinearLayout
@@ -23,7 +23,6 @@
             android:layout_height="0dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Add Expense"
-            android:id="@+id/TV_add_title"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/dark_blue"
             android:layout_weight="1"/>
@@ -121,7 +120,7 @@
                 android:layout_gravity="center"
                 android:enabled="false"
                 android:layout_marginTop="5dp"
-                android:minWidth="120dp" />
+                android:minWidth="100dp" />
 
         </LinearLayout>
     </LinearLayout>

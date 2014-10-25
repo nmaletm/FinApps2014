@@ -12,6 +12,8 @@ import com.inteam.estrellawallet.domain.entities.User;
 import com.inteam.estrellawallet.domain.listeners.OnSwipeTouchListener;
 import com.inteam.estrellawallet.domain.managers.UserManager;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.List;
 
 public class AddExpenseActivity extends SlidingActivity {
@@ -33,7 +35,7 @@ public class AddExpenseActivity extends SlidingActivity {
         um = new UserManager(this.getApplicationContext());
 
         setContentView(R.layout.activity_add_expense);
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.main_layout_main);
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.main_expense);
         layout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
             @Override
             public void onSwipeBottom() {
@@ -52,9 +54,11 @@ public class AddExpenseActivity extends SlidingActivity {
     private boolean isNumber(String word) {
         boolean isNumber = false;
         try {
-            Integer.parseInt(word);
+            NumberFormat.getNumberInstance(java.util.Locale.US).parse(word);
             isNumber = true;
         } catch (NumberFormatException e) {
+            isNumber = false;
+        } catch (ParseException e) {
             isNumber = false;
         }
         return isNumber;
@@ -75,12 +79,18 @@ public class AddExpenseActivity extends SlidingActivity {
                 expense.setText(spokenText);
 
                 Button next = (Button) findViewById(R.id.add_expense);
-                next.setText("Next +" + (Integer.parseInt(spokenText)/6) + " points");
+
+                try {
+                    next.setText(" Next +" + (NumberFormat.getNumberInstance(java.util.Locale.US).parse(spokenText).intValue()/6) + " points ");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 next.setEnabled(true);
 
             } else {
                 TextView expense = (TextView) findViewById(R.id.expense);
-                if (!isNumber((String) expense.getText())) {
+                if (!isNumber(expense.getText().toString())) {
                     Button next = (Button) findViewById(R.id.add_expense);
                     next.setText("Try again!");
                 }
@@ -104,11 +114,11 @@ public class AddExpenseActivity extends SlidingActivity {
         displaySpeechRecognizer(SPEECH_DESCRIPTION_REQUEST_CODE);
     }
 
-    public void onClickNext(View v) {
+    public void onClickNext(View v) throws ParseException {
         UserManager manager = new UserManager(getApplicationContext());
 
         TextView expense = (TextView) findViewById(R.id.expense);
-        int spent = Integer.parseInt((String) expense.getText());
+        int spent = NumberFormat.getNumberInstance(java.util.Locale.US).parse(expense.getText().toString()).intValue();
         manager.addExpense(spent, description);
         this.finish();
     }
