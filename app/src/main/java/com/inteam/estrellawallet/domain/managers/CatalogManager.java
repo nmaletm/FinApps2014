@@ -14,6 +14,7 @@ public class CatalogManager {
     }
 
     private void generateDummyCatalog(){
+        catalog = new Catalog();
         catalog.addArticle(new Article("Caritas",225,"url_photo_0"));
         catalog.addArticle(new Article("Botellín",500,"url_photo_1"));
         catalog.addArticle(new Article("Portagafas",550,"url_photo_2"));
@@ -21,7 +22,7 @@ public class CatalogManager {
         catalog.addArticle(new Article("Balón",875,"url_photo_4"));
         catalog.addArticle(new Article("Bidón",1075,"url_photo_5"));
         catalog.addArticle(new Article("Molde tarta",1250,"url_photo_6"));
-        catalog.addArticle(new Article("Herramientas",1600,"photo_7"));
+        catalog.addArticle(new Article("Herramientas",1600,"url_photo_7"));
         catalog.addArticle(new Article("Termómetro",2550,"url_photo_8"));
         catalog.addArticle(new Article("Taladro",3125,"url_photo_9"));
     }
