@@ -47,6 +47,12 @@ public class MainActivity extends SlidingActivity {
                 Intent intent = new Intent(getApplicationContext(), BudgetActivity.class);
                 startActivity(intent);
             }
+            @Override
+            public void onSwipeBottom() {
+                exitPoint = ExitPoint.BOTTOM;
+                Intent intent = new Intent(getApplicationContext(), MyCatalogActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }
