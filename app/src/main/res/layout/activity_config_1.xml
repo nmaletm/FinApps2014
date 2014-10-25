@@ -2,12 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.inteam.estrellawallet.BudgetActivity"
-    android:background="@color/light_blue">
+    android:background="#FFFFFF">
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -28,7 +24,9 @@
                 android:textColor="@color/dark_blue"
                 android:textStyle="bold"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp" />
 
             <TextView
                 android:text="What is your weekly budget?"
@@ -39,21 +37,24 @@
                 android:textColor="@color/dark_blue"
                 android:layout_below="@+id/balance"
                 android:layout_centerHorizontal="true"
-                android:enabled="false" />
+                android:enabled="false"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Set budget"
                 android:id="@+id/buttonSetPoints"
                 android:textStyle="bold"
-                android:background="@drawable/button_background"
-                android:padding="10dp"
+                android:background="@color/light_green"
+                android:padding="25dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:onClick="onClickSetBudget"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,17 +64,18 @@
                 android:id="@+id/TV_amount"
                 android:layout_marginTop="15dp"
                 android:layout_gravity="center"
-                android:textSize="22dp"
-                android:textStyle="bold" />
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_blue" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Next"
                 android:id="@+id/B_OK_config1"
                 android:textStyle="bold"
-                android:background="@drawable/button_background"
-                android:padding="10dp"
+                android:background="@color/light_green"
+                android:padding="25dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:onClick="onClickNext"

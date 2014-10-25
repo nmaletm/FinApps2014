@@ -60,6 +60,8 @@ public class HistoryAdapter extends BaseAdapter{
         final Expense item = items.get(position);
         if (item != null) {
             holder.background = (LinearLayout) convertView.findViewById(R.id.LL_achievement);
+            if(position%2 == 0) holder.background.setBackgroundColor(mContext.getResources().getColor(R.color.light_blue));
+            else holder.background.setBackgroundColor(mContext.getResources().getColor(android.R.color.white));
             holder.name = (TextView) convertView.findViewById(R.id.item_name);
             holder.name.setText(item.getCategory());
             holder.price = (TextView) convertView.findViewById(R.id.item_level);

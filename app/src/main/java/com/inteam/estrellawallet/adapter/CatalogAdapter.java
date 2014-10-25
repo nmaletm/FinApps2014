@@ -79,6 +79,8 @@ public class CatalogAdapter extends BaseAdapter{
         final Article article = items.get(position);
         if (article != null) {
             holder.background = (LinearLayout) convertView.findViewById(R.id.LL_achievement);
+            if(position%2 == 0) holder.background.setBackgroundColor(mContext.getResources().getColor(R.color.light_blue));
+            else holder.background.setBackgroundColor(mContext.getResources().getColor(android.R.color.white));
             holder.selected= (View) convertView.findViewById(R.id.view_selected);
             holder.name = (TextView) convertView.findViewById(R.id.item_name);
             holder.name.setText(article.getName());

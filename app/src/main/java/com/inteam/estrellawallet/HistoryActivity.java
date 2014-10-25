@@ -2,6 +2,7 @@ package com.inteam.estrellawallet;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.inteam.estrellawallet.adapter.HistoryAdapter;
 import com.inteam.estrellawallet.adapter.MyCatalogAdapter;
@@ -22,7 +23,9 @@ public class HistoryActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.history);
+        setContentView(R.layout.list_catalog);
+        TextView tvTitle = (TextView) findViewById(R.id.TV_choose);
+        tvTitle.setText("Your expenses");
     }
 
 

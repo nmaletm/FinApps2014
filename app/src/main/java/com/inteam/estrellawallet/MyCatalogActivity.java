@@ -3,6 +3,7 @@ package com.inteam.estrellawallet;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.inteam.estrellawallet.adapter.CatalogAdapter;
 import com.inteam.estrellawallet.adapter.MyCatalogAdapter;
@@ -23,7 +24,7 @@ public class MyCatalogActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_catalog);
+        setContentView(R.layout.list_catalog);
     }
 
 
@@ -32,6 +33,9 @@ public class MyCatalogActivity extends ListActivity {
         super.onStart();
         UserManager um = new UserManager(this.getApplicationContext());
         articles = um.getUser().getDesiredArticles();
+
+        TextView tvTitle = (TextView) findViewById(R.id.TV_choose);
+        tvTitle.setText("Your wants");
 
         MyCatalogAdapter adapter = new MyCatalogAdapter(this, articles);
         setListAdapter(adapter);
