@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main_activity);
 
         UserManager manager = new UserManager(getApplicationContext());
-        if (!manager.hasBudget() && false) {
+        if (!manager.hasBudget()) {
             Intent intent = new Intent(getApplicationContext(), BudgetActivity.class);
             startActivity(intent);
             this.finish();
