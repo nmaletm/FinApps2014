@@ -2,6 +2,7 @@ package com.inteam.estrellawallet;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
@@ -10,14 +11,17 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.inteam.estrellawallet.domain.managers.UserManager;
+
 import java.util.List;
 
 
-public class ConfigActivity extends Activity {
+public class BudgetActivity extends Activity {
 
     private static final int SPEECH_REQUEST_CODE = 0;
 
     private int step;
+    private int budget = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +59,18 @@ public class ConfigActivity extends Activity {
                 TextView TVAmount = (TextView) findViewById(R.id.TV_amount);
                 TVAmount.setText(spokenText);
 
-                Button OK = (Button) findViewById(R.id.B_OK_config1);
-                OK.setEnabled(true);
-            }
+                Button next = (Button) findViewById(R.id.B_OK_config1);
+                next.setText("Next");
+                next.setEnabled(true);
 
+                budget = Integer.parseInt(spokenText);
+            } else {
+                TextView TVAmount = (TextView) findViewById(R.id.TV_amount);
+                if (TVAmount.getText().equals("0")) {
+                    Button next = (Button) findViewById(R.id.B_OK_config1);
+                    next.setText("Try again!");
+                }
+            }
 
             ScrollView view = (ScrollView) findViewById(R.id.scrollView);
             view.scrollTo(0, 200);
@@ -72,6 +84,10 @@ public class ConfigActivity extends Activity {
     }
 
     public void onClickNext(View v) {
-
+        UserManager manager = new UserManager(getApplicationContext());
+        manager.setBudget(budget);
+        Intent intent = new Intent(getApplicationContext(), PointsActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 }

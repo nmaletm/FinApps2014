@@ -19,12 +19,20 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".BudgetActivity"
+            android:label="@string/title_activity_budget" >
+        </activity>
+        <activity
             android:name=".AddExpenseActivity"
             android:label="@string/title_activity_config" >
         </activity>
         <activity
             android:name=".ConfigActivity"
             android:label="@string/title_activity_config" >
+        </activity>
+        <activity
+            android:name=".PointsActivity"
+            android:label="@string/title_activity_points" >
         </activity>
     </application>
 
