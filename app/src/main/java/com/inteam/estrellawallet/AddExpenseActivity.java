@@ -90,7 +90,7 @@ public class AddExpenseActivity extends SlidingActivity {
 
             } else {
                 TextView expense = (TextView) findViewById(R.id.expense);
-                if (!isNumber((String) expense.getText())) {
+                if (!isNumber(expense.getText().toString())) {
                     Button next = (Button) findViewById(R.id.add_expense);
                     next.setText("Try again!");
                 }
@@ -114,11 +114,11 @@ public class AddExpenseActivity extends SlidingActivity {
         displaySpeechRecognizer(SPEECH_DESCRIPTION_REQUEST_CODE);
     }
 
-    public void onClickNext(View v) {
+    public void onClickNext(View v) throws ParseException {
         UserManager manager = new UserManager(getApplicationContext());
 
         TextView expense = (TextView) findViewById(R.id.expense);
-        int spent = Integer.parseInt((String) expense.getText());
+        int spent = NumberFormat.getNumberInstance(java.util.Locale.US).parse(expense.getText().toString()).intValue();
         manager.addExpense(spent, description);
         this.finish();
     }
