@@ -82,7 +82,7 @@ public class PointsActivity extends Activity {
     public void onClickNextView(View v) {
         UserManager manager = new UserManager(getApplicationContext());
         manager.setUserPoints(points);
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ConfigCatalogActivity.class);
         startActivity(intent);
         this.finish();
     }

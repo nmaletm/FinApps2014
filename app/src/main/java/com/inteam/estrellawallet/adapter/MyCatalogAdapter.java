@@ -26,7 +26,7 @@ import java.util.Map;
 public class MyCatalogAdapter extends BaseAdapter{
 
     private MyCatalogActivity mContext;
-    private List<Article> items;
+    public List<Article> items;
     private Map<String, Integer> dummyPhotos;
     private int userPoints;
 
