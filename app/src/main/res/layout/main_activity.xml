@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.inteam.estrellawallet.BudgetActivity"
     android:background="@color/light_blue"
-    android:id="@+id/RL_background">
+    android:id="@+id/main_layout_main">
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
         android:text="300"
         android:layout_toStartOf="@+id/imageButton3"
         android:layout_alignTop="@+id/points"
-        android:layout_alignEnd="@+id/imageButton2" />
+        android:layout_alignEnd="@+id/main_layout_main" />
 
     <ImageButton
         android:layout_width="40dp"
@@ -71,7 +71,7 @@
     <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:id="@+id/imageButton2"
+        android:id="@+id/main_layout_main"
         android:src="@drawable/ic_favorite_white_48dp"
         android:scaleType="centerCrop"
         android:background="@drawable/green_circle"
