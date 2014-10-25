@@ -1,31 +1,28 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="5dp"
     tools:context="com.inteam.estrellawallet.ActivityMain"
-    android:background="@color/light_blue"
+    android:background="#FFFFFF"
     android:id="@+id/main_expense"
     android:longClickable="false">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/linearLayout">
+
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Add Expense"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/dark_blue"
-            android:layout_weight="1"/>
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="4dp" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -37,8 +34,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_height="wrap_content">
 
                 <ImageButton
                     android:layout_width="40dp"
@@ -50,7 +46,9 @@
                     android:src="@drawable/ic_keyboard_voice_white_48dp"
                     android:contentDescription=""
                     android:onClick="onExpenseClick"
-                    android:padding="3dp">
+                    android:padding="3dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp">
                 </ImageButton>
 
                 <TextView
@@ -61,7 +59,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:textSize="16dp"
-                    android:textColor="@color/white" />I
+                    android:textColor="@color/dark_blue" />I
 
             </LinearLayout>
 
@@ -81,7 +79,8 @@
                     android:src="@drawable/ic_keyboard_voice_white_48dp"
                     android:contentDescription=""
                     android:onClick="onDescriptionClick"
-                    android:padding="3dp">
+                    android:padding="3dp"
+                    android:layout_marginLeft="15dp">
                 </ImageButton>
 
                 <TextView
@@ -92,37 +91,26 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:textSize="16dp"
-                    android:textColor="@color/white" />I
+                    android:textColor="@color/dark_blue" />I
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
-            android:layout_below="@+id/linearLayout"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:gravity="center">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Next"
+        android:id="@+id/add_expense"
+        android:textStyle="bold"
+        android:background="@color/green"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickNext"
+        android:layout_gravity="center"
+        android:enabled="false"
+        android:layout_marginTop="5dp"
+        android:textColor="#FFFFFF" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="Next"
-                android:id="@+id/add_expense"
-                android:textStyle="bold"
-                android:background="@drawable/button_background"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:onClick="onClickNext"
-                android:layout_gravity="center"
-                android:enabled="false"
-                android:layout_marginTop="5dp"
-                android:minWidth="100dp" />
 
-        </LinearLayout>
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

@@ -32,16 +32,12 @@ public class AddExpenseActivity extends SlidingActivity {
 
         exitPoint = ExitPoint.BOTTOM;
 
+
         um = new UserManager(this.getApplicationContext());
 
         setContentView(R.layout.activity_add_expense);
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.main_expense);
-        layout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
-            @Override
-            public void onSwipeBottom() {
-                self.finish();
-            }
-        });
+
+        findViewById(R.id.add_expense).setVisibility(View.INVISIBLE);
     }
 
     private void displaySpeechRecognizer(int code) {
@@ -56,10 +52,13 @@ public class AddExpenseActivity extends SlidingActivity {
         try {
             NumberFormat.getNumberInstance(java.util.Locale.US).parse(word);
             isNumber = true;
+            findViewById(R.id.add_expense).setVisibility(View.VISIBLE);
         } catch (NumberFormatException e) {
             isNumber = false;
+            findViewById(R.id.add_expense).setVisibility(View.INVISIBLE);
         } catch (ParseException e) {
             isNumber = false;
+            findViewById(R.id.add_expense).setVisibility(View.INVISIBLE);
         }
         return isNumber;
     }
