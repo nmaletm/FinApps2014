@@ -1,8 +1,5 @@
 package com.inteam.estrellawallet.domain.entities;
 
-/**
- * Created by Nestor on 24/10/2014.
- */
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,7 +29,7 @@ public class Wallet {
     public int getSpentSinceDate(Date date){
         int spent = 0;
         for (Expense expense : listOfExpenses) {
-           if(date.compareTo(expense.getDate()) > 0){
+           if(date.compareTo(expense.getDate()) < 0){
                spent += expense.getAmount();
            }
         }

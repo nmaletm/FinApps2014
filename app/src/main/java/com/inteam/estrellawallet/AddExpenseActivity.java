@@ -4,8 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.inteam.estrellawallet.domain.entities.Expense;
 import com.inteam.estrellawallet.domain.entities.User;
 import com.inteam.estrellawallet.domain.managers.UserManager;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class AddExpenseActivity extends Activity {
 
@@ -18,6 +23,8 @@ public class AddExpenseActivity extends Activity {
 
         um = new UserManager(this.getApplicationContext());
         um.setBudget(100);
+        um.addExpense(25, "test");
+        um.addExpense(10,"test");
 
         um = new UserManager(this.getApplicationContext());
 
