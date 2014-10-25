@@ -1,40 +1,36 @@
 package com.inteam.estrellawallet.adapter;
 
 
-        import java.util.ArrayList;
-        import java.util.HashMap;
-        import java.util.List;
-        import java.util.Map;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-        import android.graphics.Typeface;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.View.OnClickListener;
-        import android.view.ViewGroup;
-        import android.widget.BaseAdapter;
-        import android.widget.ImageView;
-        import android.widget.LinearLayout;
-        import android.widget.TextView;
+import com.inteam.estrellawallet.ConfigCatalogActivity;
+import com.inteam.estrellawallet.MyCatalogActivity;
+import com.inteam.estrellawallet.R;
+import com.inteam.estrellawallet.domain.entities.Article;
+import com.inteam.estrellawallet.domain.managers.CatalogManager;
 
-        import com.inteam.estrellawallet.ConfigCatalogActivity;
-        import com.inteam.estrellawallet.R;
-        import com.inteam.estrellawallet.domain.entities.Article;
-        import com.inteam.estrellawallet.domain.managers.CatalogManager;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
-public class CatalogAdapter extends BaseAdapter{
+public class MyCatalogAdapter extends BaseAdapter{
 
-    private ConfigCatalogActivity mContext;
+    private MyCatalogActivity mContext;
     private List<Article> items;
-    public List<Boolean> selected_items;
-    private CatalogManager preferences;
     private Map<String, Integer> dummyPhotos;
 
-    public CatalogAdapter(ConfigCatalogActivity activity, List<Article> newItems) {
+    public MyCatalogAdapter(MyCatalogActivity activity, List<Article> newItems) {
         mContext = activity;
         items = newItems;
-        selected_items = new ArrayList<Boolean>();
-        for(int i = 0; i < items.size(); ++i) selected_items.add(false);
 
         dummyPhotos = new HashMap<String, Integer>();
 
@@ -48,8 +44,6 @@ public class CatalogAdapter extends BaseAdapter{
         dummyPhotos.put("url_photo_7",R.drawable.catalog_herramientas);
         dummyPhotos.put("url_photo_8",R.drawable.catalog_termometro);
         dummyPhotos.put("url_photo_9",R.drawable.catalog_taladro);
-
-        //preferences = new CatalogManager(activity.getApplicationContext());
 
     }
 
@@ -91,32 +85,7 @@ public class CatalogAdapter extends BaseAdapter{
 
             int idImage = dummyPhotos.get(article.getUrlPhoto());
             holder.image.setImageResource(idImage);
-            updateRow(article, holder, position);
-            holder.background.setOnClickListener(new OnClickListener() {
-
-                public void onClick(View v) {
-                    if(!selected_items.get(position)) {
-                        selected_items.set(position, true);
-                        holder.selected.setVisibility(View.VISIBLE);
-                    }
-                    else {
-                        selected_items.set(position, false);
-                        holder.selected.setVisibility(View.INVISIBLE);
-                    }
-                }
-
-            });
         }
         return convertView;
-    }
-
-
-    public void updateRow(Article a, ViewHolderItem holder, int position) {
-        if(selected_items.get(position)) {
-            holder.selected.setVisibility(View.VISIBLE);
-        }
-        else {
-            holder.selected.setVisibility(View.INVISIBLE);
-        }
     }
 }
