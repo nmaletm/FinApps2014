@@ -86,7 +86,7 @@ public class MyCatalogAdapter extends BaseAdapter{
             holder.price = (TextView) convertView.findViewById(R.id.item_level);
 
             if(article.getPoints() <= userPoints){
-                holder.price.setText("Avaiable");
+                holder.price.setText("Available");
             } else {
                 holder.price.setText(article.getPoints()-userPoints+" left");
             }

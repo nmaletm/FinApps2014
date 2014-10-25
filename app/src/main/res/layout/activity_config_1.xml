@@ -29,7 +29,7 @@
                 android:layout_marginTop="5dp" />
 
             <TextView
-                android:text="What is your weekly budget?"
+                android:text="Which is your weekly budget?"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/TV_budget"
